@@ -1,581 +1,165 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-
-
-
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-  <meta name="author" content="Ye">
-
-
-
-
-
-<title>Hello World | 银河留白翼</title>
-
-
-
-<link rel="icon" href="/favicon.ico">
-
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"
-/>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/css/search.css">
-
-
-
-<script src="/lib/jquery.min.js"></script>
-
-
-<script src="/lib/iconify-icon.min.js"></script>
-
-
-<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-<script>
-  tailwind.config = {
-    darkMode: "class",
-  };
-</script>
-
-<script>
-  (function () {
-    const prefersDark =
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const setting = localStorage.getItem("hexo-color-scheme") || "auto";
-    if (setting === "dark" || (prefersDark && setting !== "light"))
-      document.documentElement.classList.toggle("dark", true);
-    let isDark = document.documentElement.classList.contains("dark");
-  })();
-
-  $(document).ready(function () {
-    // init icon
-    const prefersDark =
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const isDark = document.documentElement.classList.contains("dark");
-    $("#theme-icon").attr("icon", isDark ? "ic:round-dark-mode" : "ic:round-light-mode");
-
-    function toggleGiscusTheme() {
-      const isDark = document.documentElement.classList.contains("dark");
-      const giscusFrame = document.querySelector("iframe.giscus-frame");
-      if (giscusFrame) {
-        giscusFrame.contentWindow.postMessage(
-          {
-            giscus: {
-              setConfig: {
-                theme: isDark ? "dark" : "light",
-              },
-            },
-          },
-          "https://giscus.app"
-        );
-      }
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Hello World | 银河留白翼</title><meta name="author" content="Ye"><meta name="copyright" content="Ye"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hello World">
+<meta property="og:url" content="http://example.com/2025/12/18/hello-world/index.html">
+<meta property="og:site_name" content="银河留白翼">
+<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/butterfly-icon.png">
+<meta property="article:published_time" content="2025-12-18T06:27:53.677Z">
+<meta property="article:modified_time" content="2025-12-18T06:27:53.677Z">
+<meta property="article:author" content="Ye">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Hello World",
+  "url": "http://example.com/2025/12/18/hello-world/",
+  "image": "http://example.com/img/butterfly-icon.png",
+  "datePublished": "2025-12-18T06:27:53.677Z",
+  "dateModified": "2025-12-18T06:27:53.677Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Ye",
+      "url": "http://example.com"
     }
-
-
-    // toggle dark mode
-    function toggleDark() {
-      let isDark = document.documentElement.classList.contains("dark");
-      const setting = localStorage.getItem("hexo-color-scheme") || "auto";
-      isDark = !isDark;
-      document.documentElement.classList.toggle("dark", isDark);
-      $("#theme-icon").attr("icon", isDark ? "ic:round-dark-mode" : "ic:round-light-mode");
-      if (prefersDark === isDark) {
-        localStorage.setItem("hexo-color-scheme", "auto");
-      } else {
-        localStorage.setItem("hexo-color-scheme", isDark ? "dark" : "light");
-      }
-      toggleGiscusTheme();
-    }
-    $("#toggle-dark").click(toggleDark);
-
-    // listen dark mode change
-    window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", (e) => {
-        const setting = localStorage.getItem("hexo-color-scheme") || "auto";
-        if (setting === "auto") {
-          document.documentElement.classList.toggle("dark", e.matches);
-          $("#theme-icon").attr(
-            "icon",
-            e.matches ? "ic:round-dark-mode" : "ic:round-light-mode"
-          );
-          toggleGiscusTheme();
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2025/12/18/hello-world/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.2"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
         }
-      });
-  });
-</script>
+        return value
+      }
+    }
 
-
-
-
-<meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="银河留白翼" type="application/atom+xml">
-</head>
-<body 
-  class="
-    bg-[var(--c-0)]
-    text-[var(--c-80)]
-  ">
-  <!-- The navigation bar -->
-<header class="
-    flex flex-row items-center
-    w-full
-    pr-4
-    z-10
-    border-b-[1px]
-    border-b-[var(--c-border)]
-    dark:bg-[var(--c-0)]
-    dark:border-b-[var(--c-0)]
-    gap-2
-    h-[var(--h-header)]
-    text-[var(--c-80)]
-">
-  <!-- Left part -->
-  <div class="overflow-hidden h-full flex flex-row items-center">
-    <!-- Site Title on the top left -->
-    <a href="/" class="
-            whitespace-nowrap
-            text-2xl
-            text-[var(--c-theme)]
-            hover:text-[var(--c-theme)]
-            pl-4
-            font-black
-            bg-gradient-to-r from-cyan-500
-            to-blue-500 bg-clip-text text-transparent
-          ">
-      银河留白翼
-    </a>
-  </div>
-  <!-- Div for pushing items to both sides -->
-  <div class="flex-1"></div>
-  <!-- Right part -->
-  <div class="flex flex-row items-center z-20 h-full">
-    <!-- Page links -->
-    <div class="hidden sm:flex flex-row h-full">
-      
-        
-        
-          
-          
-        
-      <a href="/./archives" class="
-                        flex flex-row items-center
-                        gap-1
-                        hover:underline
-                        hover:bg-[var(--c-20)]
-                        hover:text-[var(--c-theme)]
-                        transition-all
-                        px-2
-                        py-1
-                        my-1
-                        rounded-lg
-                        group
-                        whitespace-nowrap
-                    ">
-        
-        <iconify-icon class="group-hover:scale-125 transition-transform" icon="mingcute:inbox-fill" width="22">
-        </iconify-icon>
-        
-        
-        <p>Posts</p>
-        
-      </a>
-      
-        
-        
-          
-          
-        
-      <a href="/./publications" class="
-                        flex flex-row items-center
-                        gap-1
-                        hover:underline
-                        hover:bg-[var(--c-20)]
-                        hover:text-[var(--c-theme)]
-                        transition-all
-                        px-2
-                        py-1
-                        my-1
-                        rounded-lg
-                        group
-                        whitespace-nowrap
-                    ">
-        
-        <iconify-icon class="group-hover:scale-125 transition-transform" icon="mingcute:science-fill" width="22">
-        </iconify-icon>
-        
-        
-        <p>Publications</p>
-        
-      </a>
-      
-        
-        
-          
-          
-        
-      <a href="/./about" class="
-                        flex flex-row items-center
-                        gap-1
-                        hover:underline
-                        hover:bg-[var(--c-20)]
-                        hover:text-[var(--c-theme)]
-                        transition-all
-                        px-2
-                        py-1
-                        my-1
-                        rounded-lg
-                        group
-                        whitespace-nowrap
-                    ">
-        
-        <iconify-icon class="group-hover:scale-125 transition-transform" icon="mingcute:user-info-fill" width="22">
-        </iconify-icon>
-        
-        
-        <p>About</p>
-        
-      </a>
-      
-        
-        
-          
-          
-        
-      <a href="/./categories" class="
-                        flex flex-row items-center
-                        gap-1
-                        hover:underline
-                        hover:bg-[var(--c-20)]
-                        hover:text-[var(--c-theme)]
-                        transition-all
-                        px-2
-                        py-1
-                        my-1
-                        rounded-lg
-                        group
-                        whitespace-nowrap
-                    ">
-        
-        <iconify-icon class="group-hover:scale-125 transition-transform" icon="mingcute:classify-2-fill" width="22">
-        </iconify-icon>
-        
-        
-        <p>Categories</p>
-        
-      </a>
-      
-        
-        
-          
-          
-        
-      <a href="/./tags" class="
-                        flex flex-row items-center
-                        gap-1
-                        hover:underline
-                        hover:bg-[var(--c-20)]
-                        hover:text-[var(--c-theme)]
-                        transition-all
-                        px-2
-                        py-1
-                        my-1
-                        rounded-lg
-                        group
-                        whitespace-nowrap
-                    ">
-        
-        <iconify-icon class="group-hover:scale-125 transition-transform" icon="mingcute:tag-fill" width="22">
-        </iconify-icon>
-        
-        
-        <p>Tags</p>
-        
-      </a>
-      
-        
-        
-          
-          
-        
-      <a href="/./index" class="
-                        flex flex-row items-center
-                        gap-1
-                        hover:underline
-                        hover:bg-[var(--c-20)]
-                        hover:text-[var(--c-theme)]
-                        transition-all
-                        px-2
-                        py-1
-                        my-1
-                        rounded-lg
-                        group
-                        whitespace-nowrap
-                    ">
-        
-        <iconify-icon class="group-hover:scale-125 transition-transform" icon="mingcute:home-2-fill" width="22">
-        </iconify-icon>
-        
-        
-      </a>
-      
-    </div>
-    <!-- Icons on the right -->
-    <div class="flex flex-row items-center justify-center">
-
-      <!-- TODO: Add search icon here -->
-
-      <!-- Dark/light toggle icon -->
-      <a class="flex group p-1" title="toggle theme" id="toggle-dark">
-        <iconify-icon class="transition-transform
-                    group-hover:rotate-[45deg]
-                    group-hover:scale-125
-                    group-hover:text-[var(--c-theme)]" width="24" id="theme-icon">
-        </iconify-icon>
-      </a>
-      <!-- Icon for dropout menu on small screens -->
-      <div class="flex flex-row items-center justify-center p-1 sm:hidden">
-        <a class="w-6 h-6" aria-hidden="true" id="open-menu">
-          <iconify-icon width="24" icon="mingcute:menu-fill" class="transition-transform hover:scale-125 hover:rotate-[5deg]">
-          </iconify-icon>
-        </a>
-        <a class="w-6 h-6 hidden" aria-hidden="true" id="close-menu">
-          <iconify-icon width="24" icon="mingcute:close-circle-fill" class="transition-transform hover:scale-125 hover:rotate-[80deg]">
-          </iconify-icon>
-        </a>
-      </div>
-    </div>
-  </div>
-</header>
-
-<!-- Dropdown menu on small screens -->
-<div id="menu-panel" class="
-        h-0
-        overflow-hidden
-        sm:hidden
-        w-full
-        z-10
-        rounded
-    ">
-  <div id="menu-content" class="
-        flex
-        flex-col
-        font-bold
-        text-xl
-        border-b-[1px]
-        relative
-        z-20
-        border-[var(--c-sep)]
-        px-2
-        py-2
-        -translate-y-full
-        transition-transform
-        duration-200
-        ">
-    
-    
-    
-    <a href="/./archives" class="
-                flex flex-row items-center
-                gap-2
-                h-12
-                hover:underline
-                hover:bg-[var(--c-20)]
-                px-3
-                py-1
-                rounded-lg
-            ">
-      <iconify-icon icon="mingcute:inbox-fill" width="22">
-      </iconify-icon>
-      <p>
-        Posts
-      </p>
-    </a>
-    
-    
-    
-    
-    <a href="/./publications" class="
-                flex flex-row items-center
-                gap-2
-                h-12
-                hover:underline
-                hover:bg-[var(--c-20)]
-                px-3
-                py-1
-                rounded-lg
-            ">
-      <iconify-icon icon="mingcute:science-fill" width="22">
-      </iconify-icon>
-      <p>
-        Publications
-      </p>
-    </a>
-    
-    
-    
-    
-    <a href="/./about" class="
-                flex flex-row items-center
-                gap-2
-                h-12
-                hover:underline
-                hover:bg-[var(--c-20)]
-                px-3
-                py-1
-                rounded-lg
-            ">
-      <iconify-icon icon="mingcute:user-info-fill" width="22">
-      </iconify-icon>
-      <p>
-        About
-      </p>
-    </a>
-    
-    
-    
-    
-    <a href="/./categories" class="
-                flex flex-row items-center
-                gap-2
-                h-12
-                hover:underline
-                hover:bg-[var(--c-20)]
-                px-3
-                py-1
-                rounded-lg
-            ">
-      <iconify-icon icon="mingcute:classify-2-fill" width="22">
-      </iconify-icon>
-      <p>
-        Categories
-      </p>
-    </a>
-    
-    
-    
-    
-    <a href="/./tags" class="
-                flex flex-row items-center
-                gap-2
-                h-12
-                hover:underline
-                hover:bg-[var(--c-20)]
-                px-3
-                py-1
-                rounded-lg
-            ">
-      <iconify-icon icon="mingcute:tag-fill" width="22">
-      </iconify-icon>
-      <p>
-        Tags
-      </p>
-    </a>
-    
-    
-    
-    
-    <a href="/./index" class="
-                flex flex-row items-center
-                gap-2
-                h-12
-                hover:underline
-                hover:bg-[var(--c-20)]
-                px-3
-                py-1
-                rounded-lg
-            ">
-      <iconify-icon icon="mingcute:home-2-fill" width="22">
-      </iconify-icon>
-      <p>
-        
-      </p>
-    </a>
-    
-    
-  </div>
-</div>
-
-
-  <main>
-    <!-- css -->
-
-<link rel="stylesheet" href="/lib/fancybox/fancybox.min.css">
-
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
   
-<link rel="stylesheet" href="/lib/tocbot/tocbot.min.css">
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
 
-    <!-- toc -->
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
     
-  <!-- tocbot -->
-<nav class="post-toc toc text-sm w-40 relative top-32 right-4 opacity-70 hidden lg:block" style="position: fixed !important;"></nav>
-
-
-<section class="px-6 max-w-prose mx-auto md:px-0">
-  <!-- Post header before content -->
-  <header class="py-4">
-    <div class="flex flex-col gap-2 pt-4 md:pt-6">
-      <!-- Title -->
-      <div id="article-title" class="leading-snug">
-        <p class="text-3xl font-bold text-[var(--c-100)] mb-4">Hello World</p>
-      </div>
-      <!-- Meta data -->
-      <div>
-        <section class="
-          flex flex-col gap-x-2 gap-y-1 text-sm text-[var(--c-100)]">
-          <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
-            <!-- Dates -->
-            <div class="flex items-center gap-1">
-              <iconify-icon width="18" icon="mingcute:add-circle-fill" ></iconify-icon>
-              Created: <time class="w-max">2025-12-18</time>
-            </div>
-            <div class="flex items-center gap-1">
-              <iconify-icon width="18" icon="mingcute:refresh-3-fill" ></iconify-icon>
-              Edited: <time class="w-max">2025-12-18</time>
-            </div>
-          </div>
-          <div class="flex flex-wrap items-center gap-x-3 gap-y-3">
-            <!-- Author -->
-            
-
-            <!-- Word count -->
-            <span class="flex items-center gap-1">
-              <iconify-icon width="18" icon="mingcute:book-2-fill" ></iconify-icon>
-              <span>75 words, 1 min</span>
-            </span>
-            <!-- Categories -->
-            
-          </div>
-        </section>
-      </div>
-      <!-- tags -->
-      <div>
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
         
-<div class="flex flex-wrap gap-1">
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
   
-</div>
-      </div>
-    </div>
-  </header>
-  <!-- content -->
-  <article class="post-content prose m-auto dark:prose-invert">
-    <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Hello World',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="银河留白翼" type="application/atom+xml">
+</head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">银河留白翼</span></a><a class="nav-page-title" href="/"><span class="site-name">Hello World</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">Hello World</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-12-18T06:27:53.677Z" title="Created 2025-12-18 14:27:53">2025-12-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-12-18T06:27:53.677Z" title="Updated 2025-12-18 14:27:53">2025-12-18</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
@@ -588,259 +172,4 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-  </article>
-
-  <!-- prev and next -->
-  <div class="flex justify-between mt-4 pt-4
-    border-t border-[var(--c-sep)] text-sm
-    gap-2 text-[var(--c-50)]
-  ">
-    <div>
-      
-    </div>
-    <div>
-      
-    </div>
-  </div>
-
-  <!-- comment -->
-  <div class="article-comments mt-12">
-    
-
-  </div>
-</section>
-<!-- js inspect -->
-
-<script src="/lib/clipboard.min.js"></script>
-
-
-<script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    "HTML-CSS": {
-        preferredFont: "TeX",
-        availableFonts: ["STIX","TeX"],
-        linebreaks: { automatic:true },
-        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
-    },
-    tex2jax: {
-        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
-        processEscapes: true,
-        ignoreClass: "tex2jax_ignore|dno",
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-        equationNumbers: { autoNumber: "AMS" },
-        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
-        Macros: { href: "{}" }
-    },
-    messageStyle: "none"
-  });
-</script>
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-  });
-</script>
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-<script>
-  $(document).ready(() => {
-    const maraidConfig = {
-      theme: "default",
-      logLevel: 3,
-      flowchart: { curve: "linear" },
-      gantt: { axisFormat: "%m/%d/%Y" },
-      sequence: { actorMargin: 50 },
-    };
-    mermaid.initialize(maraidConfig);
-  });
-</script>
-
-
-
-<script src="/lib/fancybox/fancybox.umd.min.js"></script>
-
-<script>
-  $(document).ready(() => {
-    $('.post-content').each(function(i){
-      $(this).find('img').each(function(){
-        if ($(this).parent().hasClass('fancybox') || $(this).parent().is('a')) return;
-        var alt = this.alt;
-        var title = this.title;
-        if (alt) $(this).after('<span class="fancybox-alt">' + alt + '</span>');
-        else if (title) $(this).after('<span class="fancybox-title">' + title + '</span>');
-        $(this).wrap('<a class="fancybox-img" href="' + this.src + '" data-fancybox=\"gallery\" data-caption="' + title + '"></a>')
-      });
-      $(this).find('.fancybox').each(function(){
-        $(this).attr('rel', 'article' + i);
-      });
-    });
-
-    Fancybox.bind('[data-fancybox="gallery"]', {
-        // options
-    })
-  })
-</script>
-
-<!-- tocbot begin -->
-
-<script src="/lib/tocbot/tocbot.min.js"></script>
-
-<script>
-  $(document).ready(() => {
-      tocbot.init({
-        // Where to render the table of contents.
-        tocSelector: '.post-toc',
-        // Where to grab the headings to build the table of contents.
-        contentSelector: '.post-content',
-        // Which headings to grab inside of the contentSelector element.
-        headingSelector: 'h1, h2, h3',
-        // For headings inside relative or absolute positioned containers within content.
-        hasInnerContainers: true,
-    });
-  })
-</script>
-<!-- tocbot end -->
-
-  </main>
-  <footer class="flex flex-col mt-18 mb-12 items-center
-  text-[var(--c-50)] text-sm">
-  <div class="flex flex-row items-center my-12">
-    
-    
-        
-        
-            
-            
-        
-        <a class="
-            hover:text-[var(--c-theme)]
-            hover:bg-[var(--c-20)]
-            rounded-lg
-            p-2
-            my-1
-            flex flex-row items-center
-            group" title="Github" target="_blank" rel="noopener" href="https://www.github.com/chen-yingfa">
-            <iconify-icon width="28" icon="mingcute:github-fill"></iconify-icon>
-        </a>
-    
-        
-        
-            
-            
-        
-        <a class="
-            hover:text-[var(--c-theme)]
-            hover:bg-[var(--c-20)]
-            rounded-lg
-            p-2
-            my-1
-            flex flex-row items-center
-            group" title="ZhiHu" target="_blank" rel="noopener" href="https://www.zhihu.com/people/chen-ying-fa-34">
-            <iconify-icon width="28" icon="ri:zhihu-line"></iconify-icon>
-        </a>
-    
-        
-        
-            
-            
-        
-        <a class="
-            hover:text-[var(--c-theme)]
-            hover:bg-[var(--c-20)]
-            rounded-lg
-            p-2
-            my-1
-            flex flex-row items-center
-            group" title="Twitter" target="_blank" rel="noopener" href="https://www.twitter.com/DonnyChan123">
-            <iconify-icon width="28" icon="mingcute:social-x-fill"></iconify-icon>
-        </a>
-    
-
-  </div>
-  <!-- busuanzi -->
-  <div class="mb-6">
-    
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<!-- Busuanzi Analytics -->
-<div class="flex flex-col items-center mb-2">
-  <div class="flex flex-row items-center">
-    <iconify-icon width="16" icon="ic:round-person" width="18"></iconify-icon>
-    <span class="mr-1">访客 Visitors: </span>
-    <span id="busuanzi_value_site_uv"></span>
-  </div>
-  <div class="flex flex-row items-center">
-    <iconify-icon width="16" icon="carbon:view-filled" width="18"></iconify-icon>
-    <span class="mx-1">浏览量 Page Views:</span>
-    <span id="busuanzi_value_site_pv"></span>
-  </div>
-</div>
-<!-- End Busuanzi Analytics -->
-
-
-  </div>
-  <!-- copyright -->
-  <div class="flex flex-row items-center gap-2">
-    <a class="hover:underline"
-      target="_blank"
-      href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
-    >
-      CC BY-NC-SA 4.0
-    </a>
-    <span>© 2022-2024</span>
-    <a class="hover:underline"
-    href="https://github.com/chen-yingfa" 
-    target="_blank" 
-    rel="noopener noreferrer">陈英发</a>
-  </div>
-  <!-- powered by -->
-  <div class="flex items-center gap-1">
-    <span>Powered by</span>
-    <a class="hover:underline" 
-    href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a>
-    <span>&</span>
-    <a href="https://github.com/chen-yingfa/hexo-theme-fengye" 
-    class="hover:underline"
-    target="_blank"
-      rel="noopener noreferrer"
-      >
-      枫叶 Fengye
-    </a>
-  </div>
-
-</footer>
-
-  <div class="
-    back-to-top
-    fixed right-6
-    z-1024
-    -bottom-20
-    rounded-lg
-    font-bold
-    py-1 px-2
-    text-[var(--c-80)]
-    bg-[var(--c-20)]
-    cursor-pointer
-    text-center
-    drop-shadow-md
-  ">
-    <span class="flex justify-center items-center text-sm">
-      <span id="scrollpercent"><span>0</span> %</span>
-      <iconify-icon width="18" icon="mingcute:arrow-to-up-fill" id="go-top"></iconify-icon>
-    </span>
-  </div>
-  
-<script src="/js/main.js"></script>
-
-
-  <div class="fixed top-0 bottom-0 left-0 right-0 pointer-events-none print:hidden" id="maple"></div>
-</body>
-
-</html>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">Ye</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://example.com/2025/12/18/hello-world/">http://example.com/2025/12/18/hello-world/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/butterfly-icon.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Ye</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">1</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/18/hello-world/" title="Hello World">Hello World</a><time datetime="2025-12-18T06:27:53.677Z" title="Created 2025-12-18 14:27:53">2025-12-18</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By Ye</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.2"></script><script src="/js/main.js?v=5.5.2"></script><div class="js-pjax"></div><script async data-pjax src="/"></script></div></body></html>
